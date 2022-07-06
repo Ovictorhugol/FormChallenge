@@ -1,9 +1,9 @@
 import React from "react";
-
+import Tabs from "./micro/Tabs/Tabs";
 function App() {
   return (
     <div>
-      <p>Hello</p>
+      <Tabs />
     </div>
   );
 }
