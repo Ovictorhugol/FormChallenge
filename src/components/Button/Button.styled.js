@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import {toRem} from '../../utils/convertToRem';
 
 export const StyledButton = styled.button`    
-    padding: 0.688rem 0.75rem;
-    height: 2.5rem;
+    padding:${toRem(11)} ${toRem(12)};
+    height: ${toRem(40)};
     background: #074EE8;
-    border-radius:0.25rem;
+    border-radius:${toRem(4)};
     border: none;
     color: #FFFFFF;
     font-family: 'Nunito', sans-serif;
@@ -13,6 +14,5 @@ export const StyledButton = styled.button`
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
-    gap: 6px;
-    margin-top: 15px;
+    gap: ${toRem(6)};    
 `;
