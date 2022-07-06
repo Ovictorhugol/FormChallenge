@@ -1,5 +1,5 @@
 import React from "react";
-import Tabs from "./micro/Tabs/Tabs";
+import Tabs from "./components/Tabs/Tabs";
 function App() {
   return (
     <div>
