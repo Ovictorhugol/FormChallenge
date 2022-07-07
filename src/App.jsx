@@ -1,9 +1,16 @@
 import React from "react";
-import Tabs from "./components/Tabs/Tabs";
+import Text from "./components/Text/Text";
 function App() {
   return (
     <div>
-      <Tabs />
+      <Text title="Your data has been send successfully" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
+      <Text title="Full name: " variable="eqwiodjahsiudhas" />
     </div>
   );
 }
