@@ -5,10 +5,11 @@ export const ContainerTab = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Nunito", sans-serif;
 `;
 
 export const TabNav = styled.ul`
-  width: 60%;
+  width: 50%;
   margin: 0 auto 2rem;
   display: flex;
   align-items: center;

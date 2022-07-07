@@ -25,19 +25,19 @@ function Tabs() {
           className={activeTab === 1 ? "active" : ""}
           onClick={handleSetFirstTab}
         >
-          Tab 1
+          Basic
         </TabNavOptions>
         <TabNavOptions
           className={activeTab === 2 ? "active" : ""}
           onClick={handleSetSecondTab}
         >
-          Tab 2
+          Social
         </TabNavOptions>
         <TabNavOptions
           className={activeTab === 3 ? "active" : ""}
           onClick={handleSetThirdTab}
         >
-          Tab 3
+          Certificates
         </TabNavOptions>
       </TabNav>
       <TabContant>{setContant()}</TabContant>
