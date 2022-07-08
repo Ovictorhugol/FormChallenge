@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { ContainerTab, TabNav, TabNavOptions, TabContant } from "./Tabs.Styled";
 
-function Tabs() {
-  const [activeTab, setActiveTab] = useState(1);
+function Tabs({activeTab, setActiveTab}) {
+  useEffect(() =>{
+    setContant()
+  }, [])
   const handleSetFirstTab = () => setActiveTab(1);
 
   const handleSetSecondTab = () => setActiveTab(2);

@@ -26,7 +26,7 @@ const SignUpTitle = styled.h2`
 `
 
 const TabTitle = styled.h3`
-    width: ${toRem(200)};
+    width: ${toRem(300)};
     height: ${toRem(48)};
     font-family: 'Inter';
     font-style: normal;
