@@ -1,6 +1,6 @@
 import React from 'react';
 import { Label, LabelContainer } from '../Input/Input.styled'
-import { SelectStyled } from './Select.styled';
+import { SelectStyled, OptionSyled } from './Select.styled';
 
 export const Select = ({ id }) => {
     switch (id) {
@@ -24,7 +24,7 @@ const SelectYear = () => {
     };
 
     let optionYear = year.years.map((yearNumber) =>
-        <option key={yearNumber}>{yearNumber}</option>
+        <OptionSyled key={yearNumber}>{yearNumber}</OptionSyled>
     );
     return (
         <>
@@ -51,7 +51,7 @@ const SelectMonth = () => {
     };
 
     let optionMonth = month.months.map((monthNumber) =>
-        <option key={monthNumber}>{monthNumber}</option>
+        <OptionSyled key={monthNumber}>{monthNumber}</OptionSyled>
     );
     return (
         <>
@@ -76,7 +76,7 @@ const SelectDay = () => {
     };
 
     let optionDate = day.days.map((date) =>
-        <option key={date}>{date}</option>
+        <OptionSyled key={date}>{date}</OptionSyled>
     );
     return (
         <>
