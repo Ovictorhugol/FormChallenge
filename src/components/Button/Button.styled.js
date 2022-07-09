@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {toRem} from '../../utils/convertToRem';
+import { toRem } from '../../utils/convertToRem';
 
 export const StyledButton = styled.button`    
     padding:${toRem(11)} ${toRem(12)};
@@ -15,4 +15,10 @@ export const StyledButton = styled.button`
     justify-content: space-evenly;
     align-items: center; 
     gap: ${toRem(6)};    
+
+    &.Certificates{
+    &:focus {
+    width: ${toRem(187)};    
+    }
+    }
 `;
