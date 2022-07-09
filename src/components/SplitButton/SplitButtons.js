@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { toRem } from '../../utils/convertToRem';
 
 export const CertificatesStyled = styled.div`
-    &.certificates{
+    &.certificatesDropdown {
     opacity: 0;
     &.active {
     opacity: 1;
