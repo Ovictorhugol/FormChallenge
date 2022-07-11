@@ -11,3 +11,11 @@ export const FormContainer = styled.div`
 export const FormInput = styled.div`
   width: 90%;
 `;
+
+export const BirthDayInput = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 30vw;
+  align-items: center;
+  justify-content: space-evenly;
+`;

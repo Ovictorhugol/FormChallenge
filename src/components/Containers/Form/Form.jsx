@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../../Input/Input";
-import { FormContainer, FormInput } from "./Form.styled";
+import { FormContainer, FormInput, BirthDayInput } from "./Form.styled";
+import Select from "../../Select/Select";
 function Form() {
   return (
     <FormContainer>
@@ -43,6 +44,11 @@ function Form() {
           label="I accept the terms and privacy"
         />
       </FormInput>
+      <BirthDayInput>
+        <Select id="Day" />
+        <Select id="Month" />
+        <Select id="Year" />
+      </BirthDayInput>
     </FormContainer>
   );
 }

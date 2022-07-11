@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const ContainerTab = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   font-family: "Nunito", sans-serif;
 `;
 
@@ -12,8 +11,7 @@ export const TabNav = styled.ul`
   width: 90%;
   margin: 0 auto 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+
   border-bottom: 1px solid #aaaaaa;
 `;
 export const TabNavOptions = styled.li`
