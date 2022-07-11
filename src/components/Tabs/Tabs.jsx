@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { ContainerTab, TabNav, TabNavOptions, TabContant } from "./Tabs.Styled";
+import Form from "../containers/Form/Form";
 
-function Tabs({activeTab, setActiveTab}) {
-  useEffect(() =>{
-    setContant()
-  }, [])
+function Tabs({ activeTab, setActiveTab }) {
+  useEffect(() => {
+    setContant();
+  }, []);
   const handleSetFirstTab = () => setActiveTab(1);
 
   const handleSetSecondTab = () => setActiveTab(2);
@@ -13,7 +14,11 @@ function Tabs({activeTab, setActiveTab}) {
 
   const setContant = () => {
     if (activeTab === 1) {
-      return <div>first Tab</div>;
+      return (
+        <div>
+          <Form />
+        </div>
+      );
     } else if (activeTab === 2) {
       return <div>second Tab</div>;
     } else if (activeTab === 3) {

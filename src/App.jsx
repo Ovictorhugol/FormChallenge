@@ -1,17 +1,8 @@
-import React, {useState} from "react";
-import Header from "./components/Containers/Header/Header"
-import Tabs from "./components/Tabs/Tabs";
-
+import React from "react";
+import Home from "./components/Pages/Home";
 
 function App() {
-  const [currentTab, setCurrentTab] = useState (1)
-  
-  return (
-    <>
-      <Header currentTab={currentTab}/>
-      <Tabs activeTab={currentTab} setActiveTab={setCurrentTab} />
-    </>
-  )
+  return <Home />;
 }
 
 export default App;

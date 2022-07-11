@@ -9,16 +9,16 @@ export const ContainerTab = styled.div`
 `;
 
 export const TabNav = styled.ul`
-  width: 50%;
+  width: 90%;
   margin: 0 auto 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid #aaaaaa;
 `;
 export const TabNavOptions = styled.li`
   width: 50%;
-  padding: 1rem;
+  padding: 0.5rem;
   list-style: none;
   text-align: center;
   cursor: pointer;
@@ -28,7 +28,7 @@ export const TabNavOptions = styled.li`
     background: rgba(0, 154, 246, 0.1);
   }
   &.active {
-    border-bottom: 4px solid #074ee8;
+    border-bottom: 2px solid #074ee8;
     color: #074ee8;
   }
 `;
