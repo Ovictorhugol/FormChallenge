@@ -2,20 +2,38 @@ import React from "react";
 import { Label, LabelContainer } from "../Input/Input.styled";
 import { SelectStyled, SelectInput, OptionSyled } from "./Select.styled";
 
-export const Select = ({ id }) => {
+export const Select = ({ id, setDay, setMonth, setYear }) => {
   switch (id) {
     case "Day":
-      return <SelectDay />;
+      return (
+        <SelectDay
+          onChange={(e) => {
+            setDay(e.target.value);
+          }}
+        />
+      );
     case "Month":
-      return <SelectMonth />;
+      return (
+        <SelectMonth
+          onChange={(e) => {
+            setMonth(e.target.value);
+          }}
+        />
+      );
     case "Year":
-      return <SelectYear />;
+      return (
+        <SelectYear
+          onChange={(e) => {
+            setYear(e.target.value);
+          }}
+        />
+      );
   }
 };
 
 export default Select;
 
-const SelectYear = () => {
+const SelectYear = ({ onChange }) => {
   let year = {
     years: [],
   };
@@ -24,20 +42,21 @@ const SelectYear = () => {
   }
 
   let optionYear = year.years.map((yearNumber) => (
-    <OptionSyled key={yearNumber}>{yearNumber}</OptionSyled>
+    <OptionSyled key={yearNumber}>{yearNumber} </OptionSyled>
   ));
+
   return (
     <>
       <SelectInput>
         <Label>Year</Label>
 
-        <SelectStyled>{optionYear}</SelectStyled>
+        <SelectStyled onChange={onChange}>{optionYear}</SelectStyled>
       </SelectInput>
     </>
   );
 };
 
-const SelectMonth = () => {
+const SelectMonth = ({ onChange }) => {
   let month = {
     months: [],
   };
@@ -56,13 +75,13 @@ const SelectMonth = () => {
     <>
       <SelectInput>
         <Label>Month</Label>
-        <SelectStyled>{optionMonth}</SelectStyled>
+        <SelectStyled onChange={onChange}>{optionMonth}</SelectStyled>
       </SelectInput>
     </>
   );
 };
 
-const SelectDay = () => {
+const SelectDay = ({ onChange }) => {
   let day = {
     days: [],
   };
@@ -77,11 +96,12 @@ const SelectDay = () => {
   let optionDate = day.days.map((date) => (
     <OptionSyled key={date}>{date}</OptionSyled>
   ));
+
   return (
     <>
       <SelectInput>
         <Label>Day</Label>
-        <SelectStyled>{optionDate}</SelectStyled>
+        <SelectStyled onChange={onChange}>{optionDate}</SelectStyled>
       </SelectInput>
     </>
   );

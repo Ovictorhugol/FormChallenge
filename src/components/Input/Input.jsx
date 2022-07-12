@@ -47,7 +47,6 @@ const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
             )}
           </CheckboxContainer>
         );
-
       default:
         return <Input>{label}</Input>;
     }
