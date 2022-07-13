@@ -14,11 +14,16 @@ export const StyledButton = styled.button`
     display: flex;
     justify-content: space-evenly;
     align-items: center; 
-    gap: ${toRem(6)};    
+    gap: ${toRem(6)};   
+    cursor: pointer; 
 
     &.Certificates{
     &:focus {
-    width: ${toRem(187)};    
+    width: ${toRem(187)};        
+    }   
     }
+
+    &.More {
+    margin-left: ${toRem(148.5)};    
     }
 `;
