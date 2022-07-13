@@ -8,6 +8,7 @@ import {
   LabelError,
   CheckboxError,
   CheckboxContainer,
+  LabelCheckBox,
 } from "./Input.styled.js";
 
 const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
@@ -41,7 +42,7 @@ const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
               value={value}
               onChange={onChange}
             />
-            <Label id="Accept">{label}</Label>
+            <LabelCheckBox id="Accept">{label}</LabelCheckBox>
             {hasError && (
               <CheckboxError>{"Please confirm the terms"}</CheckboxError>
             )}

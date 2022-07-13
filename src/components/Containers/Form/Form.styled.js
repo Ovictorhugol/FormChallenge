@@ -29,12 +29,18 @@ export const FormPhone = styled.div`
 export const BirthDayContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 90%;
+
   align-items: center;
   justify-content: space-between;
 
   @media (min-width: 768px) {
   }
+`;
+export const BirthDayForm = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  flex-direction: column;
 `;
 export const BirthDayInput = styled.div`
   width: 3.5rem;
@@ -49,4 +55,11 @@ export const FormCheckbox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const FormButton = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+  margin-top: 2rem;
 `;

@@ -16,7 +16,7 @@ function Tabs({ activeTab, setActiveTab }) {
     if (activeTab === 1) {
       return (
         <div>
-          <Form />
+          <Form setActiveTab={setActiveTab} activeTab={activeTab} />
         </div>
       );
     } else if (activeTab === 2) {

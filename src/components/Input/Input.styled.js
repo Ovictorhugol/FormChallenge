@@ -16,6 +16,15 @@ const Label = styled.label`
   color: #767676;
   font-weight: 400;
 `;
+const LabelCheckBox = styled.label`
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  text-align: left;
+
+  width: 20rem;
+  color: #767676;
+  font-weight: 400;
+`;
 
 const InputStyle = styled.input`
   box-sizing: border-box;
@@ -66,6 +75,7 @@ const CheckboxContainer = styled.div`
   align-items: center;
   display: flex;
   flex: 1;
+
   padding: 0.3rem;
   height: 5rem;
   accent-color: #074ee8;
@@ -88,4 +98,5 @@ export {
   LabelContainer,
   CheckboxError,
   CheckboxContainer,
+  LabelCheckBox,
 };
