@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import {toRem} from '../../../utils/convertToRem'
 
-
-
 const HeaderContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100% -16rem;
-    height: ${toRem(80)};
+    width: 100vw;
+    height: 5rem;
     padding: 2.5rem 10%;
     border-bottom-style : solid;
     border-bottom-color: #AAAAAA;
