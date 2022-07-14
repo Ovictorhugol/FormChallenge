@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { toRem } from '../../../utils/convertToRem';
 
 export const CertificatesForm = styled.form`
-margin-right: ${toRem(35)};
-margin-left: ${toRem(67)};
-display: grid;
-grid-template-columns: 50% 50%;
-grid-template-rows: auto ${toRem(77)} auto auto;
+    margin-right: ${toRem(35)};
+    margin-left: ${toRem(67)};
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto ${toRem(77)} auto auto;
 `;
 
 export const CertificatesInput = styled.div`
@@ -16,7 +16,7 @@ export const CertificatesInput = styled.div`
 
 export const DataInputs = styled.div`
     grid-column: 1 / 3;
-    margin-top: ${toRem(48)};
+    margin-top: ${toRem(3)};
 `;
 
 export const SubmitButton = styled.div`
@@ -26,4 +26,17 @@ export const SubmitButton = styled.div`
     margin-top: ${toRem(55)};
     margin-bottom: ${toRem(34)};
 `;
+
+export const LiStyled = styled.li`    
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: ${toRem(11)};
+    line-height: ${toRem(18)};
+    color: #FFFFFF;     
+    white-space: nowrap;
+    overflow: hidden;       
+    padding-left: ${toRem(8)};          
+`;
+
 
