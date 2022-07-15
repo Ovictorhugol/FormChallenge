@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const LabelContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 `;
 export const LabelText = styled.label`
   font-family: "Nunito", sans-serif;

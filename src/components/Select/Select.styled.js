@@ -4,7 +4,7 @@ import { toRem } from "../../utils/convertToRem";
 export const SelectStyled = styled.select`
   box-sizing: border-box;
   width: 100%;
-  height: ${toRem(40)};
+  height: ${toRem(39)};
   background: #ffffff;
   border: ${toRem(2)} solid #aaaaaa;
   border-radius: ${toRem(4)};
@@ -15,6 +15,9 @@ export const SelectStyled = styled.select`
   font-weight: 400;
   font-size: 1rem;
   vertical-align: middle;
+  @media (max-width: 768px) {
+    width: 25vw;
+  }
 `;
 export const SelectInput = styled.div`
   display: flex;

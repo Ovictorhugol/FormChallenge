@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { ContainerTab, TabNav, TabNavOptions, TabContant } from "./Tabs.Styled";
-import Form from "../containers/Form/Form";
+
+import Basic from "../containers/Basic/Basic";
 
 function Tabs({ activeTab, setActiveTab }) {
   useEffect(() => {
@@ -15,9 +16,9 @@ function Tabs({ activeTab, setActiveTab }) {
   const setContant = () => {
     if (activeTab === 1) {
       return (
-        <div>
-          <Form setActiveTab={setActiveTab} activeTab={activeTab} />
-        </div>
+        <>
+          <Basic setActiveTab={setActiveTab} activeTab={activeTab} />
+        </>
       );
     } else if (activeTab === 2) {
       return <div>second Tab</div>;

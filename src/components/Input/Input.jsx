@@ -9,6 +9,7 @@ import {
   CheckboxError,
   CheckboxContainer,
   LabelCheckBox,
+  InputStyleCheckbox,
 } from "./Input.styled.js";
 
 const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
@@ -20,7 +21,7 @@ const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
         return (
           <Container>
             <LabelContainer>
-              <Label>{label}</Label>
+              <Label htmlFor={id}>{label}</Label>
               {hasError && <LabelError>{`Please enter your ${id}`}</LabelError>}
             </LabelContainer>
             <InputStyle
@@ -35,14 +36,16 @@ const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
       case "checkbox":
         return (
           <CheckboxContainer>
-            <InputStyle
+            <InputStyleCheckbox
               id={id}
               placeholder={placeholder}
               type={type}
               value={value}
               onChange={onChange}
             />
-            <LabelCheckBox id="Accept">{label}</LabelCheckBox>
+            <LabelCheckBox for={id} id="Accept">
+              {label}
+            </LabelCheckBox>
             {hasError && (
               <CheckboxError>{"Please confirm the terms"}</CheckboxError>
             )}

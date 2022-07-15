@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../Input/Input";
-import {
-  FormContainer,
-  FormInput,
-  BirthDayInput,
-  BirthDayContainer,
-  FormCheckbox,
-  FormEmail,
-  FormPhone,
-  FormButton,
-  BirthDayForm,
-} from "./Form.styled";
 import Select from "../../Select/Select";
 import Button from "../../Button/Button";
 import { validName, validEmail } from "../../../utils/regex";
 import Label from "../../Label/Label";
-function Form({ setActiveTab, activeTab }) {
+import {
+  ContainerBasic,
+  ContainerInputLarger,
+  ContainerInputLargerPhone,
+  ContainerInputLargerEmail,
+  ContainerBirthday,
+  ContainerBirthdayInput,
+  ContainerButton,
+  ContainerCheckbox,
+} from "./Basic.styled";
+function Basic(props) {
+  const { setActiveTab, activeTab } = props;
   const [fullName, setFullName] = useState("");
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
@@ -26,15 +26,57 @@ function Form({ setActiveTab, activeTab }) {
   const [birthday, setBirthday] = useState("");
   const [age, setAge] = useState(0);
   const [check, setCheck] = useState(false);
-  const [nameError, setNameError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [checkError, setCheckError] = useState(false);
-  const [birthdayError, setBirthdayError] = useState(false);
+  const [nameError, setNameError] = useState(true);
+  const [emailError, setEmailError] = useState(true);
+  const [checkError, setCheckError] = useState(true);
+  const [birthdayError, setBirthdayError] = useState(true);
 
   useEffect(() => {
-    setAge(2022 - year);
-    Validation("birthday");
+    if (year != "") {
+      changeAge(year);
+    }
   }, [year]);
+  useEffect(() => {
+    if (year != "") {
+      changeAge(year);
+    }
+  }, [day]);
+  useEffect(() => {
+    if (year != "") {
+      changeAge(year);
+    }
+  }, [month]);
+  const changeAge = (currentYear) => {
+    setAge(2022 - currentYear);
+    console.log(age);
+    Validation("birthday");
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("fullname") != null) {
+      setFullName(localStorage.getItem("fullname"));
+      setNameError(false);
+    }
+    if (localStorage.getItem("nickname") != null) {
+      setNickname(localStorage.getItem("nickname"));
+    }
+    if (localStorage.getItem("email") != null) {
+      setEmail(localStorage.getItem("email"));
+      setEmailError(false);
+    }
+    if (localStorage.getItem("phone") != null) {
+      setPhone(localStorage.getItem("phone"));
+    }
+    if (
+      localStorage.getItem("age") != 0 &&
+      localStorage.getItem("age") != null
+    ) {
+      setBirthdayError(false);
+    }
+    if (age === 0) {
+      setAge("");
+    }
+  }, []);
   const Validation = (variableTest) => {
     switch (variableTest) {
       case "name":
@@ -52,11 +94,11 @@ function Form({ setActiveTab, activeTab }) {
       case "check":
         if (check) {
           console.log("Checkbox não marcado ");
-          setCheckError(false);
-        } else setCheckError(true);
+          setCheckError(true);
+        } else setCheckError(false);
         break;
       case "birthday":
-        if (age > 121) {
+        if (day === undefined || month === null || year === undefined) {
           setBirthdayError(true);
         } else setBirthdayError(false);
         break;
@@ -64,11 +106,11 @@ function Form({ setActiveTab, activeTab }) {
         break;
     }
   };
-
   const onClickHandler = () => {
-    if (!nameError && !emailError && !checkError) {
+    if (nameError || emailError || checkError || birthdayError) {
       console.log("Dados incompletos");
     } else {
+      console.log(nameError);
       const birthday = day + "/" + month + "/" + year;
       setBirthday(birthday);
       localStorage.setItem("fullname", fullName);
@@ -80,23 +122,10 @@ function Form({ setActiveTab, activeTab }) {
       setActiveTab(activeTab + 1);
     }
   };
-
   return (
-    <FormContainer>
-      <FormInput>
-        {!nameError ? (
-          <Input
-            id="FullName"
-            type="text"
-            placeholder="Foo Bar"
-            label="Full Name *"
-            value={fullName}
-            onChange={(e) => {
-              setFullName(e.target.value);
-              Validation("name");
-            }}
-          />
-        ) : (
+    <ContainerBasic>
+      <ContainerInputLarger>
+        {nameError ? (
           <Input
             id="FullName"
             type="text"
@@ -109,9 +138,21 @@ function Form({ setActiveTab, activeTab }) {
             }}
             hasError
           />
+        ) : (
+          <Input
+            id="FullName"
+            type="text"
+            placeholder="Foo Bar"
+            label="Full Name *"
+            value={fullName}
+            onChange={(e) => {
+              setFullName(e.target.value);
+              Validation("name");
+            }}
+          />
         )}
-      </FormInput>
-      <FormInput>
+      </ContainerInputLarger>
+      <ContainerInputLarger>
         <Input
           id="Nickname"
           type="text"
@@ -122,21 +163,9 @@ function Form({ setActiveTab, activeTab }) {
             setNickname(e.target.value);
           }}
         />
-      </FormInput>
-      <FormEmail>
-        {!emailError ? (
-          <Input
-            id="Email"
-            type="email"
-            placeholder="foo@bar.com"
-            label="Email *"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              Validation("email");
-            }}
-          />
-        ) : (
+      </ContainerInputLarger>
+      <ContainerInputLargerEmail>
+        {emailError ? (
           <Input
             id="Email"
             type="email"
@@ -149,9 +178,22 @@ function Form({ setActiveTab, activeTab }) {
             }}
             hasError
           />
+        ) : (
+          <Input
+            id="Email"
+            type="email"
+            placeholder="foo@bar.com"
+            label="Email *"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              Validation("email");
+            }}
+          />
         )}
-      </FormEmail>
-      <FormPhone>
+      </ContainerInputLargerEmail>
+
+      <ContainerInputLargerPhone>
         <Input
           id="Phone"
           type="number"
@@ -163,31 +205,28 @@ function Form({ setActiveTab, activeTab }) {
             Validation("phone");
           }}
         />
-      </FormPhone>
-      <BirthDayForm>
-        {!birthdayError ? (
-          <Label value="Birthday *"></Label>
-        ) : (
-          <Label value="Birthday *" hasError></Label>
-        )}
-
-        <BirthDayContainer>
-          <Select id="Day" setDay={setDay} />
-          <Select id="Month" setMonth={setMonth} />
-          <Select id="Year" setYear={setYear} />
-          <BirthDayInput>
-            <Input
-              id="Age"
-              type="number"
-              placeholder="Age"
-              label="Age"
-              value={age}
-            />
-          </BirthDayInput>
-        </BirthDayContainer>
-      </BirthDayForm>
-      <FormCheckbox>
-        {!checkError ? (
+      </ContainerInputLargerPhone>
+      {birthdayError ? (
+        <Label value="Birthday *" hasError></Label>
+      ) : (
+        <Label value="Birthday *"></Label>
+      )}
+      <ContainerBirthday>
+        <Select id="Day" setDay={setDay} />
+        <Select id="Month" setMonth={setMonth} />
+        <Select id="Year" setYear={setYear} />
+        <ContainerBirthdayInput>
+          <Input
+            id="Age"
+            type="number"
+            placeholder="Age"
+            label="Age"
+            value={age}
+          />
+        </ContainerBirthdayInput>
+      </ContainerBirthday>
+      <ContainerCheckbox>
+        {checkError ? (
           <Input
             type="checkbox"
             id="Accept"
@@ -211,12 +250,12 @@ function Form({ setActiveTab, activeTab }) {
             }}
           />
         )}
-      </FormCheckbox>
-      <FormButton>
+      </ContainerCheckbox>
+      <ContainerButton>
         <Button id="Next" title="Next" onClick={onClickHandler} />
-      </FormButton>
-    </FormContainer>
+      </ContainerButton>
+    </ContainerBasic>
   );
 }
 
-export default Form;
+export default Basic;

@@ -37,7 +37,7 @@ const SelectYear = ({ onChange }) => {
   let year = {
     years: [],
   };
-  for (var i = 1850; i < 2022; i++) {
+  for (var i = 1900; i < 2022; i++) {
     year.years[i] = i + 1;
   }
 

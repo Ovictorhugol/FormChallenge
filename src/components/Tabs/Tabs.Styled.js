@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ContainerTab = styled.div`
   display: flex;
   flex-direction: column;
-
   font-family: "Nunito", sans-serif;
 `;
 
@@ -13,6 +12,9 @@ export const TabNav = styled.ul`
   display: flex;
 
   border-bottom: 1px solid #aaaaaa;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 export const TabNavOptions = styled.li`
   width: 50%;
@@ -32,4 +34,5 @@ export const TabNavOptions = styled.li`
 `;
 export const TabContant = styled.div`
   display: flex;
+  justify-content: center;
 `;

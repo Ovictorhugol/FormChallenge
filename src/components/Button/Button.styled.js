@@ -15,10 +15,7 @@ export const StyledButton = styled.button`
   justify-content: space-evenly;
   align-items: center;
   gap: ${toRem(6)};
-  &:hover {
-    background: #078cff;
-    cursor: pointer;
-  }
+ 
   &.Certificates {
     &:focus {
       width: ${toRem(187)};

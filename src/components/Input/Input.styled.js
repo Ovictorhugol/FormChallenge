@@ -21,7 +21,7 @@ const LabelCheckBox = styled.label`
   font-size: 0.9rem;
   text-align: left;
 
-  width: 20rem;
+  width: 18rem;
   color: #767676;
   font-weight: 400;
 `;
@@ -49,9 +49,31 @@ const InputStyle = styled.input`
     justify-content: center;
   }
 `;
+const InputStyleCheckbox = styled.input`
+  box-sizing: border-box;
+  height: 2.2em;
+  font-family: "Nunito", sans-serif;
+  color: #767676;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  background: #ffffff;
+  border: 0.06rem solid #aaaaaa;
+  border-radius: 3px;
+  padding: 0.188rem;
+  &::placeholder {
+    height: 1.25rem;
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #767676;
+    justify-content: center;
+  }
+`;
 const LabelError = styled.label`
   font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   text-align: left;
   color: #ff0000;
   font-weight: 400;
@@ -73,11 +95,11 @@ const LabelContainer = styled.div`
 const CheckboxContainer = styled.div`
   display: inline-flex;
   align-items: center;
-  display: flex;
   flex: 1;
-
+  flex-direction: row;
   padding: 0.3rem;
   height: 5rem;
+
   accent-color: #074ee8;
   > #Checkbox {
     width: 1rem;
@@ -87,6 +109,9 @@ const CheckboxContainer = styled.div`
   > #Accept {
     font-size: 1rem;
     color: black;
+  }
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
   }
 `;
 
@@ -99,4 +124,5 @@ export {
   CheckboxError,
   CheckboxContainer,
   LabelCheckBox,
+  InputStyleCheckbox,
 };
