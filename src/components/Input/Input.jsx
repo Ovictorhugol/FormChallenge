@@ -50,7 +50,7 @@ const Input = ({
                         {hasError && <CheckboxError>{'Please confirm the terms'}</CheckboxError>}
                     </CheckboxContainer>
 
-                case "link":
+                case "url":
                     return <Container>
                             <LabelContainer>
                                 <Label>{label}</Label>

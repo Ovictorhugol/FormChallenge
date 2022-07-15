@@ -76,7 +76,7 @@ const Social = () => {
                     <Input
                         label="Github *"
                         placeholder="https://github.com/foobar"
-                        type="link"
+                        type="url"
                         id="Github"
                         onChange={handleGitHub}
                         hasError={gitHubError}
