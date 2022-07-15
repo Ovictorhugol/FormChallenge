@@ -53,6 +53,10 @@ function Basic(props) {
   };
 
   useEffect(() => {
+    setNameError(true);
+    setEmailError(true);
+    setCheckError(true);
+    setBirthdayError(true);
     if (localStorage.getItem("fullname") != null) {
       setFullName(localStorage.getItem("fullname"));
       setNameError(false);
@@ -110,7 +114,6 @@ function Basic(props) {
     if (nameError || emailError || checkError || birthdayError) {
       console.log("Dados incompletos");
     } else {
-      console.log(nameError);
       const birthday = day + "/" + month + "/" + year;
       setBirthday(birthday);
       localStorage.setItem("fullname", fullName);
