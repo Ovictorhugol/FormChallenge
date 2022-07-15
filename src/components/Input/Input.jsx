@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { 
-    Container, 
-    LabelContainer,
-    InputStyle, 
-    Label, 
-    LabelError, 
-    CheckboxError,
-    CheckboxContainer 
-    } from './Input.styled.js';
+import {
+  Container,
+  LabelContainer,
+  InputStyle,
+  Label,
+  LabelError,
+  CheckboxError,
+  CheckboxContainer,
+  LabelCheckBox,
+  InputStyleCheckbox,
+} from "./Input.styled.js";
 
 const Input = ({ 
     id, 
@@ -26,7 +28,7 @@ const Input = ({
                 case "number":
                     return <Container>
                             <LabelContainer>
-                                <Label>{label}</Label>
+                                <Label htmlFor={id}>{label}</Label>
                                 {hasError && <LabelError>{`Please enter your ${id}`}</LabelError>}
                             </LabelContainer>
                             <InputStyle 
@@ -38,18 +40,23 @@ const Input = ({
                             /> 
                         </Container>; 
                 case "checkbox":
-                    return <CheckboxContainer>
-                        <InputStyle 
-                            id={id} 
-                            placeholder={placeholder} 
-                            type={type} 
-                            value={value} 
-                            onChange={onChange}
+                    return (
+                      <CheckboxContainer>
+                        <InputStyleCheckbox
+                          id={id}
+                          placeholder={placeholder}
+                          type={type}
+                          value={value}
+                          onChange={onChange}
                         />
-                        <Label id="Accept">{label}</Label>
-                        {hasError && <CheckboxError>{'Please confirm the terms'}</CheckboxError>}
-                    </CheckboxContainer>
-
+                        <LabelCheckBox for={id} id="Accept">
+                          {label}
+                        </LabelCheckBox>
+                        {hasError && (
+                          <CheckboxError>{"Please confirm the terms"}</CheckboxError>
+                        )}
+                      </CheckboxContainer>
+                    );
                 case "url":
                     return <Container>
                             <LabelContainer>
@@ -64,16 +71,11 @@ const Input = ({
                                 onChange={onChange}      
                             /> 
                         </Container>;
-
                 default:
                     return <Input>{label}</Input>;
-            }
-            
+            }            
         }
         return <div>{getInput(type)}</div>;
 
-        
-     
-}
 
 export default Input;

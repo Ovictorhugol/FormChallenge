@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import {toRem} from '../../../utils/convertToRem'
 
 const HeaderContainer = styled.div`
@@ -14,6 +15,5 @@ const HeaderContainer = styled.div`
     @media (max-width:768px) {
         background: #ECEEF2;
     }
-`
 
-export { HeaderContainer }
+export { HeaderContainer };
