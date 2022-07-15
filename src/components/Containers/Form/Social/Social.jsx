@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Title from '../../../Title/Title'
 import Input from '../../../Input/Input'
 import Button from '../../../Button/Button'
@@ -10,24 +10,33 @@ const Social = () => {
     const [gitHub, setGitHub] = useState('')
     const [linkedIn, setLinkedIn] = useState ('')
     const [gitHubError, setGitHubError] = useState(false)
-    const [isValid, setIsValid] = useState(false) 
-
+    const [isValid, setIsValid] = useState(false)
+    
     let navigate = useNavigate();
 
     const handleLinkedIn = (e) => {
         const linkedIn = e.target.value
         setLinkedIn(e.target.value)
-        localStorage.setItem('linkedIn', linkedIn)
-        
+        localStorage.setItem('linkedIn', linkedIn)        
     }
-
+    
+    useEffect(() => {
+        const gitHub = (localStorage.getItem('gitHub'));
+        const linkedIn = (localStorage.getItem('linkedIn'));
+        if (gitHub) {
+         setGitHub(gitHub);
+        }
+        if (linkedIn) {
+            setLinkedIn(linkedIn);
+           }
+      }, []);
+   
     const handleGitHub = (e) => {
         const gitHub = e.target.value
         const pattern = /^(http(s?):\/\/)?(www\.)?github\.([a-z])+\/([A-Za-z0-9]{1,})+\/?$/
         setGitHub(e.target.value)
         localStorage.setItem('gitHub', gitHub)
         
-
         if (!pattern.test(gitHub)) {
             setGitHubError(true)
             setIsValid(false)
@@ -67,7 +76,7 @@ const Social = () => {
                     <Input
                         label="Github *"
                         placeholder="https://github.com/foobar"
-                        type="text"
+                        type="link"
                         id="Github"
                         onChange={handleGitHub}
                         hasError={gitHubError}
