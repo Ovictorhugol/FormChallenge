@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Header from "./components/Containers/Header/Header"
-import Tabs from "./components/Tabs/Tabs";
+import Social from "./components/Containers/Form/Social/Social"
+import { Routes, Route } from "react-router-dom";
 
 
 function App() {
@@ -8,8 +9,10 @@ function App() {
   
   return (
     <>
-      <Header currentTab={currentTab}/>
-      <Tabs activeTab={currentTab} setActiveTab={setCurrentTab} />
+      <Routes>
+          <Route path="/" element={<Social />} />
+          <Route path="header" element={<Header currentTab={currentTab}/>} />
+      </Routes>  
     </>
   )
 }
