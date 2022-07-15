@@ -5,7 +5,12 @@ export const ContainerTab = styled.div`
   flex-direction: column;
   font-family: "Nunito", sans-serif;
 `;
-
+export const ContainerTitle = styled.div`
+  display: flex;
+  height: 5vh;
+  width: 100%;
+  padding: 1vh;
+`;
 export const TabNav = styled.ul`
   width: 90%;
   margin: 0 auto 2rem;
