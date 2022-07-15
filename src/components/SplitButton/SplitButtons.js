@@ -15,10 +15,6 @@ export const UlStyled = styled.ul`
     background: rgba(7, 78, 232, 0.8);
     border-radius: ${toRem(4)};
     width: ${toRem(187)};
-    height:${toRem(103)};
-    display: grid;
-    grid-template-rows: ${toRem(7)} auto auto auto auto auto;
-    top: ${toRem(307)};
-    position: absolute;
+    height:${toRem(103)};          
 `;
 
