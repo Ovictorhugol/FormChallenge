@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
-import { ContainerTab, TabNav, TabNavOptions, TabContant } from "./Tabs.Styled";
-
-function Tabs({activeTab, setActiveTab}) {
-  useEffect(() =>{
-    setContant()
-  }, [])
+import {
+  ContainerTab,
+  ContainerTitle,
+  TabNav,
+  TabNavOptions,
+  TabContant,
+} from "./Tabs.Styled";
+import Title from "../Title/Title";
+import Basic from "../containers/Basic/Basic";
+import Social from "../containers/Form/Social/Social";
+function Tabs({ activeTab, setActiveTab }) {
+  useEffect(() => {
+    setContant();
+  }, []);
   const handleSetFirstTab = () => setActiveTab(1);
 
   const handleSetSecondTab = () => setActiveTab(2);
@@ -13,15 +21,26 @@ function Tabs({activeTab, setActiveTab}) {
 
   const setContant = () => {
     if (activeTab === 1) {
-      return <div>first Tab</div>;
+      return (
+        <>
+          <Basic setActiveTab={setActiveTab} activeTab={activeTab} />
+        </>
+      );
     } else if (activeTab === 2) {
-      return <div>second Tab</div>;
+      return (
+        <>
+          <Social />
+        </>
+      );
     } else if (activeTab === 3) {
       return <div>third Tab</div>;
     }
   };
   return (
     <ContainerTab>
+      <ContainerTitle>
+        <Title type="h2" label="Team Sign up"></Title>
+      </ContainerTitle>
       <TabNav>
         <TabNavOptions
           className={activeTab === 1 ? "active" : ""}

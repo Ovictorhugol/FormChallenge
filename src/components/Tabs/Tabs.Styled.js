@@ -3,22 +3,27 @@ import styled from "styled-components";
 export const ContainerTab = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: "Nunito", sans-serif;
 `;
-
+export const ContainerTitle = styled.div`
+  display: flex;
+  height: 5vh;
+  width: 100%;
+  padding: 1vh;
+`;
 export const TabNav = styled.ul`
-  width: 50%;
+  width: 90%;
   margin: 0 auto 2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+
   border-bottom: 1px solid #aaaaaa;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 export const TabNavOptions = styled.li`
   width: 50%;
-  padding: 1rem;
+  padding: 0.5rem;
   list-style: none;
   text-align: center;
   cursor: pointer;
@@ -28,10 +33,11 @@ export const TabNavOptions = styled.li`
     background: rgba(0, 154, 246, 0.1);
   }
   &.active {
-    border-bottom: 4px solid #074ee8;
+    border-bottom: 2px solid #074ee8;
     color: #074ee8;
   }
 `;
 export const TabContant = styled.div`
   display: flex;
+  justify-content: center;
 `;
