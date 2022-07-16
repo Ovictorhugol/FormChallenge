@@ -1,46 +1,137 @@
-import React, {useRef, useState} from 'react';
+import React, { useState } from 'react';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 import SplitButton from '../../SplitButton/SplitButton';
-import styled from "styled-components";
-import { CertificatesForm, CertificatesInput, SubmitButton, DataInputs, LiStyled } from './Certificates.styled';
+import { useForm } from "react-hook-form";
+import { CertificatesForm, CertificatesInput, SubmitButton, DataInputs, LiStyled, ErrorMessage, MoreBtn, SplitButtonDiv } from './Certificates.styled';
 
+const Certificates = () => {
+    const [certificateName, setCertificateName] = useState('');
+    const [addedCertificate, setAddedCertificate] = useState([]);
 
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const onSubmit = (data) => console.log(data);
 
-const Certificates = () => {   
-    const [certificates, setCertificates] = useState([]);
-    const [inputContent, setInputContent] = useState('');
+    const [isActive, setIsActive] = useState(false)
+    const isError = () => setIsActive(!isActive)
+    
 
-    function handleChange(event) {
-        setInputContent(event.target.value);
+    const [btnActive, setBtnActive] = useState(false)
+    const activatorBtn = () => setBtnActive(true)
+
+    function handleChange(e) {
+        setCertificateName(e.target.value);
     }
 
     function handleClick() {
-        setCertificates([...certificates, inputContent])              
+        if (addedCertificate.length <= 4) {
+            setAddedCertificate([...addedCertificate, certificateName])
+            activatorBtn();
+            handleSubmit(onSubmit)
+        } else {
+            isError();
+        }
     }
 
-    function removeItem() {   
-        const certificateList = document.getElementById("list");   
-        const item = document.querySelectorAll("#list li");   
-        const removeBtn = document.querySelectorAll("#list Button");   
-        certificateList.removeChild(item[0])
-        certificateList.removeChild(removeBtn[0])
-    }
+    const removeItem = (certificateOption) => () => 
+    { if (addedCertificate.length == 5){        
+        setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
+        isError();
+        } else{
+        setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
+        }
+        
+}
 
+console.log(isActive)
+console.log(addedCertificate.length)
+    const validateCertificates = register("certificates", { required: true })
     return (
-        <CertificatesForm >
+        <CertificatesForm onSubmit={handleSubmit(onSubmit)} >
             <CertificatesInput>
-                <Input id="certificates" placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" type="text" label="Certificates" onChange={handleChange}/>
+
+                <Input id="certificates"
+                    placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
+                    type="text"
+                    label="Certificates"
+                    {...{ register: validateCertificates }}
+                    onChange={e => {
+                        validateCertificates.onChange(e);
+                        handleChange(e);
+                    }}
+                />
             </CertificatesInput>
-            <SplitButton id="list" list={certificates.map(certificate => <><LiStyled key={certificate}>{certificate}</LiStyled><Button type="button" id="Remove" title="...&emsp;X" onClick={removeItem}/></>)}/>
-            <Button type="button" id="More" title="More" onClick={handleClick} />
+            <SplitButtonDiv className={`btnActive ${btnActive ? 'active' : 'inactive'}`} >
+                <SplitButton id="list"
+                    list={addedCertificate.map(certificate =>
+                        <>
+                            <LiStyled
+                                key={certificate + 1}>
+                                {certificate}
+                            </LiStyled>
+                            <Button
+                                type="button"
+                                id="Remove"
+                                title="...&emsp;X"
+                                onClick={removeItem(certificate)} />
+                        </>
+                    )} />
+            </SplitButtonDiv>
+            <MoreBtn>
+                <Button type="button"
+                    id="More"
+                    title="More"
+                    onClick={handleClick} />
+                {errors.certificates &&
+                    <ErrorMessage>Empty certificate is not allowed.
+                    </ErrorMessage>}
+                <ErrorMessage
+                    className={`limit ${isActive ? 'active' : 'inactive'}`}>
+                    Sorry, only 5 certificates are allowed. You can remove one certificate instead.
+                </ErrorMessage>
+            </MoreBtn>
             <DataInputs>
-                <Input id="TeamName" placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" type="text" label="Team Name*" />
-                <Input id="Institution" placeholder="Universidade Federal da Paraíba" type="text" label="Institution*" />
-                <Input id="Graduation" placeholder="Ciências da Computação" type="text" label="Graduation*" />
+                <Input id="TeamName"
+                    placeholder="SquadRed"
+                    type="text"
+                    label="Team Name*"
+                    hasError={errors.teamName && <p>Please, enter your team Name</p>}
+                    {...{
+                        register: register('teamName', {
+                            required: true,
+                        }),
+                    }}
+                    required />
+
+                <Input id="Institution"
+                    placeholder="Universidade Federal da Paraíba"
+                    type="text" label="Institution*"
+                    hasError={errors.institution && <p>Please, enter your Institution</p>}
+                    {...{
+                        register: register('institution', {                            
+                            required: true,
+                        }),
+                    }}
+                    required />
+
+                <Input id="Graduation"
+                    placeholder="Ciências da Computação"
+                    type="text"
+                    label="Graduation*"
+                    hasError={errors.graduation && <p>Please, enter your Institution</p>}
+                    {...{
+                        register: register('graduation', {                           
+                            required: true,
+                        }),
+                    }}
+                    required />
+                {errors.Graduation && <p>Please, enter your Graduation</p>}
             </DataInputs>
             <SubmitButton>
-                <Button type="button" id="Ending" title="Finish" />
+                <Button
+                    type="submit"
+                    id="Ending"
+                    title="Finish" />
             </SubmitButton>
         </CertificatesForm>
     )
