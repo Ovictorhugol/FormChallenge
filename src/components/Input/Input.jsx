@@ -17,7 +17,8 @@ const Input = ({
     label, 
     value, 
     onChange,
-    hasError
+    hasError,    
+    register
     }) => {
         const getInput = (type) => {
             switch (type) {
@@ -34,7 +35,8 @@ const Input = ({
                                 placeholder={placeholder} 
                                 type={type} 
                                 value={value} 
-                                onChange={onChange}      
+                                {...register} 
+                                onChange={onChange}                                                             
                             /> 
                         </Container>; 
                 case "checkbox":
