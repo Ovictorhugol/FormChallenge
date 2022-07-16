@@ -12,7 +12,7 @@ import {
   InputStyleCheckbox,
 } from "./Input.styled.js";
 
-const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
+const Input = ({ id, placeholder, type, label, value, onChange, hasError, register }) => {
   const getInput = (type) => {
     switch (type) {
       case "text":
@@ -65,6 +65,7 @@ const Input = ({ id, placeholder, type, label, value, onChange, hasError }) => {
               placeholder={placeholder}
               type={type}
               value={value}
+              {...register}
               onChange={onChange}
             />
           </Container>

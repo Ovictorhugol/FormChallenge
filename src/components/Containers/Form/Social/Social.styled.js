@@ -6,7 +6,7 @@ const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 22rem;
-  width: 100%;
+  width: 80%;
   border-radius: 1em;
   margin-right: auto;
   margin-left: auto;
