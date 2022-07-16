@@ -4,6 +4,7 @@ import Select from "../../Select/Select";
 import Button from "../../Button/Button";
 import { validName, validEmail } from "../../../utils/regex";
 import Label from "../../Label/Label";
+import { useNavigate } from "react-router-dom";
 import {
   ContainerBasic,
   ContainerInputLarger,
@@ -15,6 +16,7 @@ import {
   ContainerCheckbox,
 } from "./Basic.styled";
 function Basic(props) {
+  const navigate = useNavigate();
   const { setActiveTab, activeTab } = props;
   const [fullName, setFullName] = useState("");
   const [nickname, setNickname] = useState("");
@@ -123,6 +125,7 @@ function Basic(props) {
       localStorage.setItem("birthday", birthday);
       localStorage.setItem("age", age);
       setActiveTab(activeTab + 1);
+      navigate("/social");
     }
   };
   return (
