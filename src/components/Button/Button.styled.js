@@ -25,6 +25,34 @@ export const StyledButton = styled.button`
 
     &.More {
     margin-left: ${toRem(148.5)};    
+    gap: ${toRem(6)};  
+    cursor: pointer;       
+    &:hover {
+    background: #3905F5;
+    } 
+    }
+
+    &.Certificates{
+    &:focus {
+    width: ${toRem(187)};    
+    }
+
+    &.More {    
+    max-width:  ${toRem(110)}
+    }
+
+    &.Remove{
+    background: transparent;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: ${toRem(11)};
+    line-height: ${toRem(18)};    
+    padding: 0;
+    height:${toRem(18)}; 
+    border: none;
+    text-decoration: underline white;
+    margin-right: ${toRem(11)};    
     }
   }
 `;
