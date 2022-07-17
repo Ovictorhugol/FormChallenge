@@ -8,43 +8,45 @@ import { CertificatesForm, CertificatesInput, SubmitButton, DataInputs, LiStyled
 const Certificates = () => {
     const [certificateName, setCertificateName] = useState('');
     const [addedCertificate, setAddedCertificate] = useState([]);
+    const certificatesList = [...addedCertificate, certificateName];
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        localStorage.setItem("form", JSON.stringify(data));
+        localStorage.setItem("certificates", JSON.stringify(certificatesList)); 
+    }
 
     const [isActive, setIsActive] = useState(false)
     const isError = () => setIsActive(!isActive)
-    
 
     const [btnActive, setBtnActive] = useState(false)
-    const activatorBtn = () => setBtnActive(true)
-
+    const activatorBtn = () => setBtnActive(true) 
+  
     function handleChange(e) {
         setCertificateName(e.target.value);
-    }
+                
+}
 
     function handleClick() {
         if (addedCertificate.length <= 4) {
             setAddedCertificate([...addedCertificate, certificateName])
-            activatorBtn();
-            handleSubmit(onSubmit)
+            activatorBtn();     
+                                         
+         
         } else {
             isError();
         }
     }
 
-    const removeItem = (certificateOption) => () => 
-    { if (addedCertificate.length == 5){        
-        setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
-        isError();
-        } else{
-        setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
+    const removeItem = (certificateOption) => () => {
+        if (addedCertificate.length == 5) {
+            setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
+            isError();
+        } else {
+            setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
         }
-        
-}
+    }
 
-console.log(isActive)
-console.log(addedCertificate.length)
     const validateCertificates = register("certificates", { required: true })
     return (
         <CertificatesForm onSubmit={handleSubmit(onSubmit)} >
@@ -52,7 +54,7 @@ console.log(addedCertificate.length)
 
                 <Input id="certificates"
                     placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
-                    type="text"
+                    type="text"                   
                     label="Certificates"
                     {...{ register: validateCertificates }}
                     onChange={e => {
@@ -73,7 +75,7 @@ console.log(addedCertificate.length)
                                 type="button"
                                 id="Remove"
                                 title="...&emsp;X"
-                                onClick={removeItem(certificate)} />
+                                onMouseDown={removeItem(certificate)} />
                         </>
                     )} />
             </SplitButtonDiv>
@@ -108,7 +110,7 @@ console.log(addedCertificate.length)
                     type="text" label="Institution*"
                     hasError={errors.institution && <p>Please, enter your Institution</p>}
                     {...{
-                        register: register('institution', {                            
+                        register: register('institution', {
                             required: true,
                         }),
                     }}
@@ -120,7 +122,7 @@ console.log(addedCertificate.length)
                     label="Graduation*"
                     hasError={errors.graduation && <p>Please, enter your Institution</p>}
                     {...{
-                        register: register('graduation', {                           
+                        register: register('graduation', {
                             required: true,
                         }),
                     }}
@@ -134,6 +136,7 @@ console.log(addedCertificate.length)
                     title="Finish" />
             </SubmitButton>
         </CertificatesForm>
+
     )
 }
 
