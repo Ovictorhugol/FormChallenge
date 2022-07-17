@@ -28,7 +28,10 @@ export const ContainerInputLargerPhone = styled.div`
     width: 35%;
   }
 `;
-
+export const ContainerBirthdayLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 export const ContainerBirthday = styled.div`
   display: flex;
   width: 100%;

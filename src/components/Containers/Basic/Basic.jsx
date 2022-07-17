@@ -14,6 +14,7 @@ import {
   ContainerBirthdayInput,
   ContainerButton,
   ContainerCheckbox,
+  ContainerBirthdayLabel,
 } from "./Basic.styled";
 function Basic(props) {
   const navigate = useNavigate();
@@ -212,25 +213,27 @@ function Basic(props) {
           }}
         />
       </ContainerInputLargerPhone>
-      {birthdayError ? (
-        <Label value="Birthday *" hasError></Label>
-      ) : (
-        <Label value="Birthday *"></Label>
-      )}
-      <ContainerBirthday>
-        <Select id="Day" setDay={setDay} />
-        <Select id="Month" setMonth={setMonth} />
-        <Select id="Year" setYear={setYear} />
-        <ContainerBirthdayInput>
-          <Input
-            id="Age"
-            type="number"
-            placeholder="Age"
-            label="Age"
-            value={age}
-          />
-        </ContainerBirthdayInput>
-      </ContainerBirthday>
+      <ContainerBirthdayLabel>
+        {birthdayError ? (
+          <Label value="Birthday *" hasError></Label>
+        ) : (
+          <Label value="Birthday *"></Label>
+        )}
+        <ContainerBirthday>
+          <Select id="Day" setDay={setDay} />
+          <Select id="Month" setMonth={setMonth} />
+          <Select id="Year" setYear={setYear} />
+          <ContainerBirthdayInput>
+            <Input
+              id="Age"
+              type="number"
+              placeholder="Age"
+              label="Age"
+              value={age}
+            />
+          </ContainerBirthdayInput>
+        </ContainerBirthday>
+      </ContainerBirthdayLabel>
       <ContainerCheckbox>
         {checkError ? (
           <Input
