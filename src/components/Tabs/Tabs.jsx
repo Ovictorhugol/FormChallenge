@@ -9,16 +9,29 @@ import {
 import Title from "../Title/Title";
 import Basic from "../containers/Basic/Basic";
 import Social from "../containers/Form/Social/Social";
-import Success from "../Containers/Form/Success/Success"
+
+import Certificates from "../containers/Certificates/Certificates";
+import { useNavigate } from "react-router-dom";
+
 function Tabs({ activeTab, setActiveTab }) {
+  const navigate = useNavigate();
   useEffect(() => {
     setContant();
   }, []);
-  const handleSetFirstTab = () => setActiveTab(1);
+  const handleSetFirstTab = () => {
+    navigate("/basic");
+    setActiveTab(1);
+  };
 
-  const handleSetSecondTab = () => setActiveTab(2);
+  const handleSetSecondTab = () => {
+    navigate("/social");
+    setActiveTab(2);
+  };
 
-  const handleSetThirdTab = () => setActiveTab(3);
+  const handleSetThirdTab = () => {
+    navigate("/certificates");
+    setActiveTab(3);
+  };
 
   const setContant = () => {
     if (activeTab === 1) {
@@ -36,7 +49,9 @@ function Tabs({ activeTab, setActiveTab }) {
     } else if (activeTab === 3) {
       return (
         <>
-          <Success />
+
+          <Certificates />
+
         </>
       );
     }
