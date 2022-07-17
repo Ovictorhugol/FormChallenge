@@ -27,7 +27,9 @@ const Success = () => {
     const birthday = `Birthday: ${localStorage.getItem("birthday")}`;
     const linkedIn = `LinkedIn: ${localStorage.getItem("linkedIn")}`;
     const gitHub = `GitHub: ${localStorage.getItem('gitHub')}`;
-    const certificates = `Certificates: ${localStorage.getItem('certificates')}`;
+    const certificates = `Certificates: ${JSON.parse(localStorage.getItem(
+      "certificates"
+    ))}`;
     const teamName = `TeamName: ${localStorage.getItem('teamName')}`;
     const institution = `Institution: ${localStorage.getItem('intitution')}`;
     const graduation = `Graduation: ${localStorage.getItem('graduation')}`;
@@ -81,7 +83,7 @@ const Success = () => {
             <Text variable={birthday}/>
             <Text variable={linkedIn}/>
             <Text variable={gitHub}/>
-            <Text variable={certificates}/>
+            <Text variable={certificates.replace(/\,/g, "\n")} />
             <Text variable={teamName}/>
             <Text variable={institution}/>
             <Text variable={graduation}/> 
