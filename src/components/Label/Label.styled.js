@@ -11,6 +11,8 @@ export const LabelText = styled.label`
   text-align: left;
   color: #767676;
   font-weight: 400;
+  line-height: 1rem;
+  height: 1rem;
 `;
 export const LabelError = styled.label`
   font-family: "Nunito", sans-serif;

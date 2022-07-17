@@ -3,8 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: 0.3rem 0rem;
+    flex: 1;   
     height: 5rem;
 `
 const Label = styled.label`
@@ -14,6 +13,8 @@ const Label = styled.label`
   margin-right: 1.25rem;
   color: #767676;
   font-weight: 400;
+  line-height: 1rem;
+  height: 1rem;
 `;
 const LabelCheckBox = styled.label`
   font-family: "Nunito", sans-serif;
