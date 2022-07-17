@@ -35,7 +35,9 @@ function Tabs({ activeTab, setActiveTab }) {
       );
     } else if (activeTab === 3) {
       return (
-        <div>Teste</div>
+        <>
+          <Success />
+        </>
       );
     }
   };

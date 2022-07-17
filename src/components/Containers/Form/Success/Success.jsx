@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Text from '../../../Text/Text'
 import { SuccessContainer, ReturnContainer } from './Success.styled'
 import Button from '../../../Button/Button'
+import { useNavigate } from "react-router-dom";
 
 const Success = () => {
     const [fullName, setFullName] = useState(''); 
@@ -15,6 +16,8 @@ const Success = () => {
     const [teamName, setTeamName] = useState('');
     const [institution, setInstitution] = useState('');
     const [graduation, setGraduation] = useState('');
+
+    let navigate = useNavigate();  
   
    useEffect(() => {
     const fullName = `Full Name: ${localStorage.getItem('fullname')}`;
@@ -63,6 +66,10 @@ const Success = () => {
       setGraduation(graduation);
     }
   }, []);
+
+  const handleClick = () => {
+    navigate("/basic", { replace: true });
+  };
    
   return ( 
         <SuccessContainer>
@@ -79,7 +86,7 @@ const Success = () => {
             <Text variable={institution}/>
             <Text variable={graduation}/> 
             <ReturnContainer>           
-                <Button id="Ending" title="Return" />
+                <Button id="Ending" title="Return" onClick={handleClick} />
             </ReturnContainer>                     
         </SuccessContainer>        
   )
