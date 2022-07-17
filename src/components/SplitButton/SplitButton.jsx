@@ -1,24 +1,23 @@
 import React, { useState, useRef } from 'react';
 import Button from '../Button/Button';
-import { CertificatesStyled, UlStyled } from './SplitButtons';
+import { CertificatesStyled, UlStyled, SplitButtonContainer } from './SplitButtons';
 
 const SplitButton = ({list, id}) => {
 const [isActive, setIsActive] = useState(false)
 const onClick = () => setIsActive(!isActive)
+const onBlur = () => setIsActive(false)
 
-console.log(isActive)
 
     return (
-        <div>
-        <div>
-            <Button type="button" id="Certificates" title="Certificates" onClick={onClick}/>
+         <SplitButtonContainer>
+            <Button type="button" id="Certificates" title="Certificates" onClick={onClick} onBlur={onBlur}/>
             <CertificatesStyled className={`certificatesDropdown ${isActive ? 'active' : 'inactive'}`}>
                 <UlStyled id={id}>
                     {list}                                
                 </UlStyled>
             </CertificatesStyled>
-        </div>
-        </div>
+        </SplitButtonContainer>
+       
     )
 }
 
