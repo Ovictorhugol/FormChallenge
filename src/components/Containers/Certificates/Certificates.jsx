@@ -7,43 +7,41 @@ import { CertificatesForm, CertificatesInput, SubmitButton, DataInputs, LiStyled
 
 const Certificates = () => {
     const [certificateName, setCertificateName] = useState('');
-    const [addedCertificate, setAddedCertificate] = useState([]);    
-    const certificatesList =[addedCertificate];
-    
+    const [addedCertificate, setAddedCertificate] = useState([]);
+    const certificatesList = [...addedCertificate, certificateName];
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => localStorage.setItem("form", JSON.stringify(data));
 
     const [isActive, setIsActive] = useState(false)
-    const isError = () => setIsActive(!isActive)           
+    const isError = () => setIsActive(!isActive)
 
     const [btnActive, setBtnActive] = useState(false)
-    const activatorBtn = () => setBtnActive(true)
-
-    function handleChange(e) {                
-        localStorage.setItem("certificate",JSON.stringify(certificatesList));
-        setCertificateName(e.target.value);     
-        
-    }
+    const activatorBtn = () => setBtnActive(true) 
+  
+    function handleChange(e) {
+        setCertificateName(e.target.value);        
+}
 
     function handleClick() {
         if (addedCertificate.length <= 4) {
             setAddedCertificate([...addedCertificate, certificateName])
-            activatorBtn();
-            handleSubmit(onSubmit)
+            activatorBtn();     
+             localStorage.setItem("certificates", JSON.stringify(certificatesList));                              
+         
         } else {
             isError();
         }
     }
 
-    const removeItem = (certificateOption) => () => 
-    { if (addedCertificate.length == 5){        
-        setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
-        isError();
-        } else{
-        setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
+    const removeItem = (certificateOption) => () => {
+        if (addedCertificate.length == 5) {
+            setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
+            isError();
+        } else {
+            setAddedCertificate((addedCertificate) => addedCertificate.filter(i => i !== certificateOption))
         }
-        
-}
+    }
 
     const validateCertificates = register("certificates", { required: true })
     return (
@@ -52,7 +50,7 @@ const Certificates = () => {
 
                 <Input id="certificates"
                     placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/"
-                    type="text"
+                    type="text"                   
                     label="Certificates"
                     {...{ register: validateCertificates }}
                     onChange={e => {
@@ -90,7 +88,7 @@ const Certificates = () => {
                     Sorry, only 5 certificates are allowed. You can remove one certificate instead.
                 </ErrorMessage>
             </MoreBtn>
-            <DataInputs>                                               
+            <DataInputs>
                 <Input id="TeamName"
                     placeholder="SquadRed"
                     type="text"
@@ -108,7 +106,7 @@ const Certificates = () => {
                     type="text" label="Institution*"
                     hasError={errors.institution && <p>Please, enter your Institution</p>}
                     {...{
-                        register: register('institution', {                            
+                        register: register('institution', {
                             required: true,
                         }),
                     }}
@@ -120,7 +118,7 @@ const Certificates = () => {
                     label="Graduation*"
                     hasError={errors.graduation && <p>Please, enter your Institution</p>}
                     {...{
-                        register: register('graduation', {                           
+                        register: register('graduation', {
                             required: true,
                         }),
                     }}
@@ -131,10 +129,10 @@ const Certificates = () => {
                 <Button
                     type="submit"
                     id="Ending"
-                    title="Finish" />                    
-            </SubmitButton>            
+                    title="Finish" />
+            </SubmitButton>
         </CertificatesForm>
-        
+
     )
 }
 
