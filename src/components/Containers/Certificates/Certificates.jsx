@@ -7,20 +7,22 @@ import { CertificatesForm, CertificatesInput, SubmitButton, DataInputs, LiStyled
 
 const Certificates = () => {
     const [certificateName, setCertificateName] = useState('');
-    const [addedCertificate, setAddedCertificate] = useState([]);
-
+    const [addedCertificate, setAddedCertificate] = useState([]);    
+    const certificatesList =[addedCertificate];
+    
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => localStorage.setItem("form", JSON.stringify(data));
 
     const [isActive, setIsActive] = useState(false)
-    const isError = () => setIsActive(!isActive)
-    
+    const isError = () => setIsActive(!isActive)           
 
     const [btnActive, setBtnActive] = useState(false)
     const activatorBtn = () => setBtnActive(true)
 
-    function handleChange(e) {
-        setCertificateName(e.target.value);
+    function handleChange(e) {                
+        localStorage.setItem("certificate",JSON.stringify(certificatesList));
+        setCertificateName(e.target.value);     
+        
     }
 
     function handleClick() {
@@ -43,8 +45,6 @@ const Certificates = () => {
         
 }
 
-console.log(isActive)
-console.log(addedCertificate.length)
     const validateCertificates = register("certificates", { required: true })
     return (
         <CertificatesForm onSubmit={handleSubmit(onSubmit)} >
@@ -73,7 +73,7 @@ console.log(addedCertificate.length)
                                 type="button"
                                 id="Remove"
                                 title="...&emsp;X"
-                                onClick={removeItem(certificate)} />
+                                onMouseDown={removeItem(certificate)} />
                         </>
                     )} />
             </SplitButtonDiv>
@@ -90,7 +90,7 @@ console.log(addedCertificate.length)
                     Sorry, only 5 certificates are allowed. You can remove one certificate instead.
                 </ErrorMessage>
             </MoreBtn>
-            <DataInputs>
+            <DataInputs>                                               
                 <Input id="TeamName"
                     placeholder="SquadRed"
                     type="text"
@@ -131,9 +131,10 @@ console.log(addedCertificate.length)
                 <Button
                     type="submit"
                     id="Ending"
-                    title="Finish" />
-            </SubmitButton>
+                    title="Finish" />                    
+            </SubmitButton>            
         </CertificatesForm>
+        
     )
 }
 
