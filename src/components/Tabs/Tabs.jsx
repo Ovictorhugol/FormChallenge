@@ -9,6 +9,7 @@ import {
 import Title from "../Title/Title";
 import Basic from "../containers/Basic/Basic";
 import Social from "../containers/Form/Social/Social";
+import Success from "../Containers/Form/Success/Success"
 import { useNavigate } from "react-router-dom";
 function Tabs({ activeTab, setActiveTab }) {
   const navigate = useNavigate();
@@ -44,7 +45,11 @@ function Tabs({ activeTab, setActiveTab }) {
         </>
       );
     } else if (activeTab === 3) {
-      return <div>third Tab</div>;
+      return (
+        <>
+          <Success />
+        </>
+      );
     }
   };
   return (
