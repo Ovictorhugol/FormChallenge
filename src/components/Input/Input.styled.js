@@ -3,21 +3,22 @@ import styled from "styled-components";
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: 0.3rem 0rem;
+    flex: 1;   
     height: 5rem;
 `
 const Label = styled.label`
   font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.875;
   text-align: left;
   margin-right: 1.25rem;
   color: #767676;
   font-weight: 400;
+  line-height: 1rem;
+  height: 1rem;
 `;
 const LabelCheckBox = styled.label`
   font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.875;
   text-align: left;
 
   width: 18rem;
@@ -72,18 +73,22 @@ const InputStyleCheckbox = styled.input`
 `;
 const LabelError = styled.label`
   font-family: "Nunito", sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   text-align: left;
   color: #ff0000;
   font-weight: 400;
+  line-height: 1rem;
+  height: 1rem;
 `;
 
 const CheckboxError = styled.label`
   font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.875;
   text-align: left;
   color: #ff0000;
   font-weight: 400;
+  line-height: 1rem;
+  height: 1rem;
 `;
 const LabelContainer = styled.div`
   display: inline-flex;
