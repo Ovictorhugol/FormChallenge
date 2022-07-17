@@ -56,12 +56,12 @@ const Social = () => {
     gitHubError && setGitHubError(false);
   };
 
-  const handleClick = () => {
-    if (!isValid) {
-      return;
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (isValid) {
+      navigate("/certificates");
     }
     resetFields();
-    navigate("/header", { replace: true });
   };
 
   return (
