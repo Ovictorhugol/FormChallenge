@@ -15,4 +15,12 @@ const SuccessContainer = styled.div`
   }
 `;
 
-export default SuccessContainer
+const ReturnContainer = styled.div`
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    flex-direction: row-reverse;
+`;
+
+
+export { SuccessContainer, ReturnContainer }
