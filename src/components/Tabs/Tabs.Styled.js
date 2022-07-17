@@ -28,6 +28,10 @@ export const TabNavOptions = styled.li`
   text-align: center;
   cursor: pointer;
   transition: all 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.125rem;
 
   :hover {
     background: rgba(0, 154, 246, 0.1);
