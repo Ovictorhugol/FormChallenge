@@ -11,7 +11,10 @@ const Certificates = () => {
     const certificatesList = [...addedCertificate, certificateName];
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = (data) => localStorage.setItem("form", JSON.stringify(data));
+    const onSubmit = (data) => {
+        localStorage.setItem("form", JSON.stringify(data));
+        localStorage.setItem("certificates", JSON.stringify(certificatesList)); 
+    }
 
     const [isActive, setIsActive] = useState(false)
     const isError = () => setIsActive(!isActive)
@@ -20,14 +23,15 @@ const Certificates = () => {
     const activatorBtn = () => setBtnActive(true) 
   
     function handleChange(e) {
-        setCertificateName(e.target.value);        
+        setCertificateName(e.target.value);
+                
 }
 
     function handleClick() {
         if (addedCertificate.length <= 4) {
             setAddedCertificate([...addedCertificate, certificateName])
             activatorBtn();     
-             localStorage.setItem("certificates", JSON.stringify(certificatesList));                              
+                                         
          
         } else {
             isError();
