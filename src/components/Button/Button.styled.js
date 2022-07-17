@@ -16,26 +16,15 @@ export const StyledButton = styled.button`
     align-items: center; 
     gap: ${toRem(6)};   
     cursor: pointer; 
+    &:hover {
+    background: #3905F5;
+    } 
 
     &.Certificates{
     &:focus {
     width: ${toRem(187)};        
     }   
-    }
-
-    &.More {
-    margin-left: ${toRem(148.5)};    
-    gap: ${toRem(6)};  
-    cursor: pointer;       
-    &:hover {
-    background: #3905F5;
-    } 
-    }
-
-    &.Certificates{
-    &:focus {
-    width: ${toRem(187)};    
-    }
+    }    
 
     &.More {    
     max-width:  ${toRem(110)}
@@ -52,7 +41,7 @@ export const StyledButton = styled.button`
     height:${toRem(18)}; 
     border: none;
     text-decoration: underline white;
-    margin-right: ${toRem(11)};    
-    }
-  }
+    margin-right: ${toRem(11)};  
+    z-index: 10;  
+    }  
 `;
