@@ -17,8 +17,8 @@ import {
   ContainerBirthdayLabel,
 } from "./Basic.styled";
 function Basic(props) {
+  const { setActiveTab, activeTab, setSocialContainer } = props;
   const navigate = useNavigate();
-  const { setActiveTab, activeTab } = props;
   const [fullName, setFullName] = useState("");
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
@@ -126,6 +126,7 @@ function Basic(props) {
       localStorage.setItem("birthday", birthday);
       localStorage.setItem("age", age);
       setActiveTab(activeTab + 1);
+      setSocialContainer(true);
       navigate("/social");
     }
   };
@@ -224,13 +225,14 @@ function Basic(props) {
           <Select id="Month" setMonth={setMonth} />
           <Select id="Year" setYear={setYear} />
           <ContainerBirthdayInput>
-           <Input
+            <Input
               id="Age"
               type="number"
               placeholder="Age"
               label="Age"
-              value={age} />
-              </ContainerBirthdayInput>               
+              value={age}
+            />
+          </ContainerBirthdayInput>
         </ContainerBirthday>
       </ContainerBirthdayLabel>
       <ContainerCheckbox>

@@ -11,7 +11,8 @@ import {
   ButtonFormGroup,
 } from "./Social.styled";
 
-const Social = () => {
+const Social = (props) => {
+  const { setCertificateContainer } = props;
   const [gitHub, setGitHub] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
   const [gitHubError, setGitHubError] = useState(false);
@@ -60,6 +61,7 @@ const Social = () => {
     e.preventDefault();
     if (isValid) {
       navigate("/certificates");
+      setCertificateContainer(true);
     }
     resetFields();
   };

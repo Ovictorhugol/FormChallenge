@@ -4,7 +4,8 @@ import { SuccessContainer, ReturnContainer } from "./Success.styled";
 import Button from "../../../Button/Button";
 import { useNavigate } from "react-router-dom";
 
-const Success = () => {
+const Success = (props) => {
+  const { setSocialContainer, setCertificateContainer } = props;
   const [fullName, setFullName] = useState("");
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
@@ -27,15 +28,15 @@ const Success = () => {
     const birthday = `Birthday: ${localStorage.getItem("birthday")}`;
     const linkedIn = `LinkedIn: ${localStorage.getItem("linkedIn")}`;
 
-    const gitHub = `GitHub: ${localStorage.getItem('gitHub')}`;
-    const certificates = `Certificates: ${JSON.parse(localStorage.getItem(
-      "certificates"
-    ))}`;
-    const teamName = `TeamName: ${localStorage.getItem('teamName')}`;
-    const institution = `Institution: ${localStorage.getItem('intitution')}`;
-    const graduation = `Graduation: ${localStorage.getItem('graduation')}`;
-    
-    if (localStorage.getItem('fullname') !== null) {
+    const gitHub = `GitHub: ${localStorage.getItem("gitHub")}`;
+    const certificates = `Certificates: ${JSON.parse(
+      localStorage.getItem("certificates")
+    )}`;
+    const teamName = `TeamName: ${localStorage.getItem("teamName")}`;
+    const institution = `Institution: ${localStorage.getItem("intitution")}`;
+    const graduation = `Graduation: ${localStorage.getItem("graduation")}`;
+
+    if (localStorage.getItem("fullname") !== null) {
       setFullName(fullName) && true;
     }
     if (localStorage.getItem("nickname") !== null) {
@@ -71,30 +72,31 @@ const Success = () => {
   }, []);
 
   const handleClick = () => {
-    navigate("/basic", { replace: true });
+    setSocialContainer(false);
+    setCertificateContainer(false);
     localStorage.clear();
+    navigate("/basic", { replace: true });
   };
 
-  return ( 
-        <SuccessContainer>
-            <Text title='Your data has been sent successfully!' />        
-            <Text variable={fullName}/>
-            <Text variable={nickname}/>
-            <Text variable={email}/>
-            <Text variable={phone}/>
-            <Text variable={birthday}/>
-            <Text variable={linkedIn}/>
-            <Text variable={gitHub}/>
-            <Text variable={certificates.replace(/\,/g, "\n")} />
-            <Text variable={teamName}/>
-            <Text variable={institution}/>
-            <Text variable={graduation}/> 
-            <ReturnContainer>           
-                <Button id="Ending" title="Return" onClick={handleClick} />
-            </ReturnContainer>                     
-        </SuccessContainer>        
-  )
-
+  return (
+    <SuccessContainer>
+      <Text title="Your data has been sent successfully!" />
+      <Text variable={fullName} />
+      <Text variable={nickname} />
+      <Text variable={email} />
+      <Text variable={phone} />
+      <Text variable={birthday} />
+      <Text variable={linkedIn} />
+      <Text variable={gitHub} />
+      <Text variable={certificates.replace(/\,/g, "\n")} />
+      <Text variable={teamName} />
+      <Text variable={institution} />
+      <Text variable={graduation} />
+      <ReturnContainer>
+        <Button id="Ending" title="Return" onClick={handleClick} />
+      </ReturnContainer>
+    </SuccessContainer>
+  );
 };
 
 export default Success;
