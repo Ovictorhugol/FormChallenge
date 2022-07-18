@@ -31,6 +31,7 @@ export const ContainerInputLargerPhone = styled.div`
 export const ContainerBirthdayLabel = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 export const ContainerBirthday = styled.div`
   display: flex;

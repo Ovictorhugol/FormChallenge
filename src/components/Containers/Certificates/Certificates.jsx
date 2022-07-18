@@ -28,6 +28,7 @@ const Certificates = () => {
   const onSubmit = (data) => {
     localStorage.setItem("form", JSON.stringify(data));
     localStorage.setItem("certificates", JSON.stringify(certificatesList));
+    navigate("/sucess");
   };
 
   const [isActive, setIsActive] = useState(false);
@@ -63,6 +64,8 @@ const Certificates = () => {
   };
 
   const validateCertificates = register("certificates", { required: true });
+
+  const RouteNavigation = () => {};
   return (
     <CertificatesForm onSubmit={handleSubmit(onSubmit)}>
       <CertificatesInput>
