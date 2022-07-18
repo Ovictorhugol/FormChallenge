@@ -5,12 +5,25 @@ export const ContainerTab = styled.div`
   flex-direction: column;
   font-family: "Nunito", sans-serif;
 `;
+<<<<<<< Updated upstream
 export const ContainerTitle = styled.div`
   display: flex;
   height: 5vh;
   width: 100%;
   padding: 1vh;
 `;
+=======
+<<<<<<< Updated upstream
+
+=======
+export const ContainerTitle = styled.div`
+  display: flex;
+  margin-top: 3.5rem; 
+  margin-left: 2.813rem;
+  margin-bottom: 2.063rem;  
+`;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 export const TabNav = styled.ul`
   width: 90%;
   margin: 0 auto 2rem;
