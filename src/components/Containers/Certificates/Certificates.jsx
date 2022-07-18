@@ -117,7 +117,7 @@ const Certificates = () => {
           id="TeamName"
           placeholder="SquadRed"
           type="text"
-          label="Team Name*"
+          label="Team Name *"
           hasError={errors.teamName && <p>Please, enter your team Name</p>}
           {...{
             register: register("teamName", {
@@ -131,7 +131,7 @@ const Certificates = () => {
           id="Institution"
           placeholder="Universidade Federal da Paraíba"
           type="text"
-          label="Institution*"
+          label="Institution *"
           hasError={errors.institution && <p>Please, enter your Institution</p>}
           {...{
             register: register("institution", {
@@ -145,7 +145,7 @@ const Certificates = () => {
           id="Graduation"
           placeholder="Ciências da Computação"
           type="text"
-          label="Graduation*"
+          label="Graduation *"
           hasError={errors.graduation && <p>Please, enter your Institution</p>}
           {...{
             register: register("graduation", {

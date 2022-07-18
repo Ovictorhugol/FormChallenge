@@ -165,7 +165,7 @@ function Basic(props) {
           id="Nickname"
           type="text"
           placeholder="Nickname"
-          label="Nickname*"
+          label="Nickname"
           value={nickname}
           onChange={(e) => {
             setNickname(e.target.value);
@@ -206,7 +206,7 @@ function Basic(props) {
           id="Phone"
           type="number"
           placeholder="(83) 00000-0000"
-          label="Phone *"
+          label="Phone"
           value={phone}
           onChange={(e) => {
             setPhone(e.target.value);
