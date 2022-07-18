@@ -11,7 +11,7 @@ const HeaderContainer = styled.div`
   border-bottom-color: #aaaaaa;
   border-bottom-width: ${toRem(1)};
   @media (max-width: 768px) {
-    background: #eceef2;
+  background: #eceef2;
   }
 `;
 export { HeaderContainer };
