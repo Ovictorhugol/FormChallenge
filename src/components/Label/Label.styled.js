@@ -14,6 +14,7 @@ export const LabelText = styled.label`
   line-height: 1rem;
   height: 1rem;
   margin-bottom: 0.875rem;
+  margin-right: 1.188rem;
 `;
 export const LabelError = styled.label`
   font-family: "Nunito", sans-serif;
@@ -23,4 +24,5 @@ export const LabelError = styled.label`
   font-weight: 400;
   line-height: 1rem;
   height: 1rem;
+  margin-right: 1.188rem;
 `;
