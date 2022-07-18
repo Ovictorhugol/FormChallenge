@@ -12,7 +12,14 @@ import Social from "../containers/Form/Social/Social";
 import Certificates from "../containers/Certificates/Certificates";
 import { useNavigate } from "react-router-dom";
 
-function Tabs({ activeTab, setActiveTab }) {
+function Tabs({
+  activeTab,
+  setActiveTab,
+  socialContainer,
+  setSocialContainer,
+  certificateContainer,
+  setCertificateContainer,
+}) {
   const navigate = useNavigate();
   useEffect(() => {
     setContant();
@@ -23,26 +30,34 @@ function Tabs({ activeTab, setActiveTab }) {
   };
 
   const handleSetSecondTab = () => {
-    navigate("/social");
-    setActiveTab(2);
+    if (socialContainer) {
+      navigate("/social");
+      setActiveTab(2);
+    }
   };
 
   const handleSetThirdTab = () => {
-    navigate("/certificates");
-    setActiveTab(3);
+    if (certificateContainer) {
+      navigate("/certificates");
+      setActiveTab(3);
+    }
   };
 
   const setContant = () => {
     if (activeTab === 1) {
       return (
         <>
-          <Basic setActiveTab={setActiveTab} activeTab={activeTab} />
+          <Basic
+            setActiveTab={setActiveTab}
+            activeTab={activeTab}
+            setSocialContainer={setSocialContainer}
+          />
         </>
       );
     } else if (activeTab === 2) {
       return (
         <>
-          <Social />
+          <Social setCertificateContainer={setCertificateContainer} />
         </>
       );
     } else if (activeTab === 3) {
