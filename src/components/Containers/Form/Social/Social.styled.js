@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { toRem } from "../../../../utils/convertToRem";
 
 const FormContainer = styled.div`
   display: flex;
@@ -6,17 +7,17 @@ const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 22rem;
-  width: 80%;
+  width: 100%;
   border-radius: 1em;
-  margin-right: auto;
-  margin-left: auto;
-
+  margin-right: ${toRem(55)};
+  margin-left: ${toRem(47)};
+  margin-top: 2rem;
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
 const FormContent = styled.form`
-  width: 80%;
+  width: 100%;
 `;
 
 const TitleFormGroup = styled.div`
@@ -34,6 +35,7 @@ const ButtonFormGroup = styled.div`
   height: 3rem;
   display: flex;
   flex-direction: row-reverse;
+  margin-bottom: 2.25rem;
 `;
 
 export {

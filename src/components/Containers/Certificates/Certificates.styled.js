@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { toRem } from '../../../utils/convertToRem';
 
 export const CertificatesForm = styled.form`
-    margin-right: ${toRem(35)};
-    margin-left: ${toRem(67)};
+    margin-right: ${toRem(55)};
+    margin-left: ${toRem(47)};
+    width: 100%;
     display: grid;
     grid-template-columns: 22.5% 77.5%;
     grid-template-rows: auto ${toRem(77)} auto auto;
 `;
 
 export const CertificatesInput = styled.div`
-    grid-column: 1 / 3;
-    margin-top: ${toRem(37)};
+    grid-column: 1 / 3;    
 `;
 
 export const DataInputs = styled.div`

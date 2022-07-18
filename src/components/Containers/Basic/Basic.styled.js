@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { toRem } from "../../../utils/convertToRem";
 
 export const ContainerBasic = styled.div`  
+  width: 100%;
   margin-right: ${toRem(55)};
   margin-left: ${toRem(47)};
   display: grid;
