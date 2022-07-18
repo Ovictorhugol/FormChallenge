@@ -48,7 +48,13 @@ const SelectYear = ({ onChange }) => {
   return (
     <>
       <SelectInput>
+<<<<<<< Updated upstream
         <Label>Year</Label>
+=======
+        <LabelContainer>
+        <Label>Year</Label>
+        </LabelContainer>
+>>>>>>> Stashed changes
 
         <SelectStyled onChange={onChange}>{optionYear}</SelectStyled>
       </SelectInput>
@@ -74,7 +80,13 @@ const SelectMonth = ({ onChange }) => {
   return (
     <>
       <SelectInput>
+<<<<<<< Updated upstream
         <Label>Month</Label>
+=======
+      <LabelContainer>
+        <Label>Month</Label>
+        </LabelContainer>
+>>>>>>> Stashed changes
         <SelectStyled onChange={onChange}>{optionMonth}</SelectStyled>
       </SelectInput>
     </>
@@ -100,7 +112,13 @@ const SelectDay = ({ onChange }) => {
   return (
     <>
       <SelectInput>
+<<<<<<< Updated upstream
         <Label>Day</Label>
+=======
+      <LabelContainer>
+        <Label>Day</Label>
+        </LabelContainer>
+>>>>>>> Stashed changes
         <SelectStyled onChange={onChange}>{optionDate}</SelectStyled>
       </SelectInput>
     </>
