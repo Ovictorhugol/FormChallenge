@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Text from "../../../Text/Text";
-import { SuccessContainer, ReturnContainer } from "./Success.styled";
+import { SuccessContainer, CertificatesContainer, ReturnContainer } from "./Success.styled";
 import Button from "../../../Button/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const Success = (props) => {
     const linkedIn = `LinkedIn: ${localStorage.getItem("linkedIn")}`;
 
     const gitHub = `GitHub: ${localStorage.getItem("gitHub")}`;
-    const certificates = `Certificates: ${JSON.parse(
+    const certificates = `${JSON.parse(
       localStorage.getItem("certificates")
     )}`;
     const teamName = `TeamName: ${localStorage.getItem("teamName")}`;
@@ -88,7 +88,10 @@ const Success = (props) => {
       <Text variable={birthday} />
       <Text variable={linkedIn} />
       <Text variable={gitHub} />
-      <Text variable={certificates.replace(/\,/g, "\n")} />
+      <CertificatesContainer>
+        <Text variable={"Certificates: "} />
+        <Text variable={certificates.replace(/\,/g, "\n")} />
+      </CertificatesContainer>
       <Text variable={teamName} />
       <Text variable={institution} />
       <Text variable={graduation} />

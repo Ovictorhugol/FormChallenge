@@ -11,7 +11,7 @@ export const TextContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
 `;
 export const TitleText = styled.p`
   color: black;
