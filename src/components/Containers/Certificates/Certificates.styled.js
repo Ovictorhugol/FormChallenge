@@ -8,6 +8,10 @@ export const CertificatesForm = styled.form`
     display: grid;
     grid-template-columns: 22.5% 77.5%;
     grid-template-rows: auto ${toRem(77)} auto auto;
+    @media (max-width: 768px) {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
 `;
 
 export const CertificatesInput = styled.div`

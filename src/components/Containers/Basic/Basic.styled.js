@@ -8,11 +8,12 @@ export const ContainerBasic = styled.div`
   display: grid;
   grid-template-columns: 68.6% 31.4%;
   grid-template-rows: auto auto auto auto auto auto;
-
   justify-content: space-between;
   @media (max-width: 768px) {   
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto auto auto auto auto auto auto;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 `;
 

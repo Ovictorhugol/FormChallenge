@@ -8,7 +8,7 @@ export const ContainerTab = styled.div`
 
 export const ContainerTitle = styled.div`
   display: flex;
-  margin-top: 3.5rem; 
+  margin-top: 2rem; 
   margin-left: 2.813rem;
   margin-bottom: 2.063rem;
   @media (max-width: 768px) {

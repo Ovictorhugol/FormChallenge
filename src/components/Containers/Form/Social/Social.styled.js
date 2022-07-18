@@ -14,10 +14,13 @@ const FormContainer = styled.div`
   margin-top: 2rem;
   @media (max-width: 768px) {
     width: 100%;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 `;
 const FormContent = styled.form`
   width: 100%;
+  
 `;
 
 const TitleFormGroup = styled.div`
