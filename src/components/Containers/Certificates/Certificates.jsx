@@ -14,6 +14,7 @@ import {
   SplitButtonDiv,
 } from "./Certificates.styled";
 import { useNavigate } from "react-router-dom";
+
 const Certificates = () => {
   const navigate = useNavigate();
   const [certificateName, setCertificateName] = useState("");
@@ -26,10 +27,12 @@ const Certificates = () => {
     handleSubmit,
   } = useForm();
   const onSubmit = (data) => {
-    localStorage.setItem("form", JSON.stringify(data));
+    localStorage.setItem("teamName",(data['teamName']));
+    localStorage.setItem("institution",(data['institution']));
+    localStorage.setItem("graduation",(data['graduation']));
     localStorage.setItem("certificates", JSON.stringify(certificatesList));
     navigate("/sucess");
-  };
+  };   
 
   const [isActive, setIsActive] = useState(false);
   const isError = () => setIsActive(!isActive);
