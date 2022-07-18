@@ -59,7 +59,7 @@ export const ContainerBirthday = styled.div`
     grid-column: 1 / 3; 
     grid-row: 4 / 6;   
     display: grid;
-    grid-template-columns: 47% 47%;
+    grid-template-columns: 48% 48%;
     grid-template-rows: 50% 50%;
     grid-gap: 0 1.375rem;
     
@@ -80,7 +80,8 @@ export const ContainerCheckbox = styled.div`
   grid-row: 5 / 6;
   margin-bottom: 2.688rem;
   @media (max-width: 768px) {   
-    grid-row: 6/ 7;  
+    grid-row: 6/ 7;   
+    margin-bottom:0;  
   }
 `;
 

@@ -17,6 +17,10 @@ export const TitleText = styled.p`
   color: black;
 `;
 
-export const VariableText = styled.p`
-  color: black;
+export const VariableText = styled.p`  
+  color: black;  
+  overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+  
 `;

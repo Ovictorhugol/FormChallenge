@@ -5,6 +5,9 @@ const Container = styled.div`
     flex-direction: column;
     flex: 1;  
     height: 5rem;
+    @media (max-width: 768px) { 
+   height: 4.5rem;  
+  }
 `;
 const Label = styled.label`
   font-family: "Nunito", sans-serif;

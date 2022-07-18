@@ -12,6 +12,8 @@ const HeaderContainer = styled.div`
   border-bottom-width: ${toRem(1)};
   @media (max-width: 768px) {
   background: #eceef2;
+  height: 4rem;
+  padding: 0.875rem 10%;
   }
 `;
 export { HeaderContainer };
