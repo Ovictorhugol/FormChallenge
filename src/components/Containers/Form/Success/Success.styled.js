@@ -14,7 +14,6 @@ const SuccessContainer = styled.div`
     width: 100%;
   }
 `;
-
 const ReturnContainer = styled.div`
     width: 100%;
     height: 3rem;
@@ -24,3 +23,4 @@ const ReturnContainer = styled.div`
 
 
 export { SuccessContainer, ReturnContainer }
+

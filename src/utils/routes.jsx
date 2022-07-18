@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "../components/containers/Header/Header";
 import { Container } from "../App.styled";
 import Tabs from "../components/Tabs/Tabs";
-import Basic from "../components/containers/Basic/Basic";
+import Success from "../components/containers/Form/Success/Success";
 export default function MainRoutes() {
   const [currentTab, setCurrentTab] = useState(1);
   return (
@@ -38,6 +38,17 @@ export default function MainRoutes() {
             <Header currentTab={3} />
             <Container>
               <Tabs activeTab={3} setActiveTab={setCurrentTab} />
+            </Container>
+          </>
+        }
+      />
+      <Route
+        path="/sucess"
+        element={
+          <>
+            <Header currentTab={4} />
+            <Container>
+              <Success />
             </Container>
           </>
         }

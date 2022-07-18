@@ -66,6 +66,7 @@ const Input = ({ id, placeholder, type, label, value, onChange, hasError, regist
               placeholder={placeholder}
               type={type}
               value={value}
+              {...register}
               onChange={onChange}
             />
           </Container>

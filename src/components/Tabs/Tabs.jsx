@@ -9,8 +9,9 @@ import {
 import Title from "../Title/Title";
 import Basic from "../containers/Basic/Basic";
 import Social from "../containers/Form/Social/Social";
-import Success from "../Containers/Form/Success/Success"
+import Certificates from "../containers/Certificates/Certificates";
 import { useNavigate } from "react-router-dom";
+
 function Tabs({ activeTab, setActiveTab }) {
   const navigate = useNavigate();
   useEffect(() => {
@@ -47,7 +48,7 @@ function Tabs({ activeTab, setActiveTab }) {
     } else if (activeTab === 3) {
       return (
         <>
-          <Success />
+          <Certificates />
         </>
       );
     }
