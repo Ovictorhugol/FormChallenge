@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;  
     height: 5rem;
 `;
-export const Label = styled.label`
+const Label = styled.label`
   font-family: "Nunito", sans-serif;
   font-size: 0.875rem;
   text-align: left; 
@@ -16,7 +16,7 @@ export const Label = styled.label`
   height: 1rem;  
 `;
 
-export const LabelCheckBox = styled.label`
+const LabelCheckBox = styled.label`
   font-family: "Nunito", sans-serif;
   font-size: 0.875rem;
   text-align: left;
@@ -25,7 +25,7 @@ export const LabelCheckBox = styled.label`
   font-weight: 400;
 `;
 
-export const InputStyle = styled.input`
+const InputStyle = styled.input`
   box-sizing: border-box;
   width: 100%;
   height: 2.5em;
@@ -46,7 +46,7 @@ export const InputStyle = styled.input`
   }
 `;
 
-export const InputStyleCheckbox = styled.input`
+const InputStyleCheckbox = styled.input`
   box-sizing: border-box;
   height: 2.2rem;
   font-family: "Nunito", sans-serif;
@@ -72,7 +72,7 @@ export const InputStyleCheckbox = styled.input`
   }
 `;
 
-export const LabelError = styled.label`
+const LabelError = styled.label`
   font-family: "Nunito", sans-serif;
   font-size: 0.875rem;
   text-align: left;
@@ -82,7 +82,7 @@ export const LabelError = styled.label`
   height: 1rem;
 `;
 
-export const CheckboxError = styled.label`
+const CheckboxError = styled.label`
   font-family: "Nunito", sans-serif;
   font-size: 0.875rem;
   text-align: left;
@@ -91,13 +91,13 @@ export const CheckboxError = styled.label`
   height: 1rem;
 `;
 
-export const LabelContainer = styled.div`
+const LabelContainer = styled.div`
   display: inline-flex;
   text-align: center;
   margin-bottom: 0.313rem;
 `;
 
-export const CheckboxContainer = styled.div`
+const CheckboxContainer = styled.div`
 
   display: inline-flex;
   align-items: center;
