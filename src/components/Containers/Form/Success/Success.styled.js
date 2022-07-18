@@ -3,7 +3,7 @@ import styled from "styled-components";
 const SuccessContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 30rem;
+  height: 35rem;
   width: 85%;
   border-radius: 1em;
   margin: auto;
@@ -24,10 +24,11 @@ const ReturnContainer = styled.div`
 const CertificatesContainer = styled.div`
   width: 100%;
   display: inline-flex;
-  height: 2rem;
-  &:first-child {
-    width: 30%;
+  height: 6rem;
+  div:nth-child(2) {
+    flex: 2;
   }
+
 `
 
 

@@ -27,13 +27,12 @@ const Success = (props) => {
     const phone = `Phone: ${localStorage.getItem("phone")}`;
     const birthday = `Birthday: ${localStorage.getItem("birthday")}`;
     const linkedIn = `LinkedIn: ${localStorage.getItem("linkedIn")}`;
-
     const gitHub = `GitHub: ${localStorage.getItem("gitHub")}`;
     const certificates = `${JSON.parse(
       localStorage.getItem("certificates")
     )}`;
     const teamName = `TeamName: ${localStorage.getItem("teamName")}`;
-    const institution = `Institution: ${localStorage.getItem("intitution")}`;
+    const institution = `Institution: ${localStorage.getItem("institution")}`;
     const graduation = `Graduation: ${localStorage.getItem("graduation")}`;
 
     if (localStorage.getItem("fullname") !== null) {
@@ -89,8 +88,8 @@ const Success = (props) => {
       <Text variable={linkedIn} />
       <Text variable={gitHub} />
       <CertificatesContainer>
-        <Text variable={"Certificates: "} />
-        <Text variable={certificates.replace(/\,/g, "\n")} />
+        <Text id="titlecertificate" variable={"Certificates: "} />
+        <Text id="contentCertificate" variable={certificates.replace(/\,/g, "\n")} />
       </CertificatesContainer>
       <Text variable={teamName} />
       <Text variable={institution} />
