@@ -80,6 +80,7 @@ const LabelError = styled.label`
   font-weight: 400;
   line-height: 1rem;
   height: 1rem;
+  margin-left: 1.188rem;
 `;
 
 const CheckboxError = styled.label`
