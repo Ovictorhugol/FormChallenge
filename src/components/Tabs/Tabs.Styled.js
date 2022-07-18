@@ -10,7 +10,10 @@ export const ContainerTitle = styled.div`
   display: flex;
   margin-top: 3.5rem; 
   margin-left: 2.813rem;
-  margin-bottom: 2.063rem;  
+  margin-bottom: 2.063rem;
+  @media (max-width: 768px) {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+  }  
 `;
 
 export const TabNav = styled.ul`

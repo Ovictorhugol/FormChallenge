@@ -9,10 +9,6 @@ const SuccessContainer = styled.div`
   margin: auto;
   padding: 2rem 0rem;
   overflow: hidden;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 `;
 const ReturnContainer = styled.div`
     width: 100%;

@@ -12,6 +12,6 @@ export const Container = styled.div`
   padding: auto;
 
   @media (max-width: 768px) {
-    width: 70%;
+    width: 100%;
   }
 `;
