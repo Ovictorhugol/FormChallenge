@@ -14,10 +14,7 @@ export const SelectStyled = styled.select`
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
-  vertical-align: middle;
-  @media (max-width: 768px) {
-    width: 25vw;
-  }
+  vertical-align: middle; 
 `;
 export const SelectInput = styled.div`
   display: flex;
