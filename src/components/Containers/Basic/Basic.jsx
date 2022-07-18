@@ -224,14 +224,13 @@ function Basic(props) {
           <Select id="Month" setMonth={setMonth} />
           <Select id="Year" setYear={setYear} />
           <ContainerBirthdayInput>
-            <Input
+           <Input
               id="Age"
               type="number"
               placeholder="Age"
               label="Age"
-              value={age}
-            />
-          </ContainerBirthdayInput>
+              value={age} />
+              </ContainerBirthdayInput>               
         </ContainerBirthday>
       </ContainerBirthdayLabel>
       <ContainerCheckbox>
